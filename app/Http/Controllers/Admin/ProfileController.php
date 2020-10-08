@@ -8,30 +8,9 @@ use App\Profile;
 
 class ProfileController extends Controller
 {
-    public function add()
-    {
-        return view('admin.profile.create');
-    }
-
-    public function create(Request $request)
-    {
-
-      // 以下を追記
-      // Varidationを行う
-      $this->validate($request, Profile::$rules);
-
-      $profile = new Profile;
-      $form = $request->all();
-     
-      return redirect('admin/profile/create');
-      
-      // フォームから送信されてきた_tokenを削除する
-      unset($form['_token']);
-
-      // データベースに保存する
-      $profile->fill($form);
-      $profile->save();
-    }
+    
+    
+    
     
     // 以下を追記
     public function index(Request $request)
@@ -46,6 +25,39 @@ class ProfileController extends Controller
         }
         return view('admin.profile.index', ['posts' => $posts, 'cond_name' => $cond_name]);
     }
+
+    public function show(Request $request)
+    {
+        //dd($request);
+        $post = Profile::find($request->id);
+     
+        return view('admin.profile.show', ['post' => $post]);
+    }
+    
+    public function add()
+    {
+        return view('admin.profile.create');
+    }
+    
+    public function create(Request $request)
+    {
+
+      // 以下を追記
+      // Varidationを行う
+      $this->validate($request, Profile::$rules);
+
+      $profile = new Profile;
+      $form = $request->all();
+      
+      // フォームから送信されてきた_tokenを削除する
+      unset($form['_token']);
+
+      // データベースに保存する
+      $profile->fill($form);
+      $profile->save();
+      return redirect('admin/profile');
+    }
+    
     
     // 以下を追記
 

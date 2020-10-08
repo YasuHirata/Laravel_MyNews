@@ -28,13 +28,13 @@
         <div class="row">
             <div class="admin-news col-md-12 mx-auto">
                 <div class="row">
-                    <table class="table table-dark">
+                    <table class="table table-dark table-txt-center">
                         <thead>
                             <tr>
                                 <th width="10%">ID</th>
                                 <th width="20%">名前</th>
-                                <th width="50%">性別</th>
-                                <th width="10%">操作</th>
+                                <th width="30%">性別</th>
+                                <th colspan="3" width="30%">操作</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -47,10 +47,18 @@
                                         <div>
                                             <a href="{{ action('Admin\ProfileController@edit', ['id' => $profile->id]) }}">編集</a>
                                         </div>
+                                    </td>
+                                    <td>
+                                        <div>
+                                            <a href="{{ action('Admin\ProfileController@show', ['id' => $profile->id]) }}">詳細</a>
+                                        </div>
+                                    </td>
+                                    <td>
                                         <div>
                                             <a href="{{ action('Admin\ProfileController@delete', ['id' => $profile->id]) }}">削除</a>
                                         </div>
                                     </td>
+                                    
                                 </tr>
                             @endforeach
                         </tbody>
