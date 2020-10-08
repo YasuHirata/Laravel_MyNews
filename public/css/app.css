@@ -2036,7 +2036,6 @@ pre code {
 .table-dark td,
 .table-dark thead th {
   border-color: #454d55;
-  text-align:center;
 }
 
 .table-dark.table-bordered {
@@ -10898,6 +10897,5 @@ a.text-dark:focus {
     color: inherit;
     border-color: #dee2e6;
   }
-
 }
 

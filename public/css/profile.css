@@ -39,3 +39,8 @@ body {
   background-color: rgba(0, 0, 0, 0.25);
 }
 
+.table-dark th,
+.table-dark td,
+.table-dark thead th {
+  text-align: center;
+}
